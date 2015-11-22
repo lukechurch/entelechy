@@ -5,7 +5,7 @@
 import 'dart:io';
 import 'dart:convert';
 import 'dart:async';
-import 'package:entelechy/utils.dart';
+import 'package:entelechy_server/utils.dart';
 
 const HOST = "127.0.0.1";
 const PORT = 11001;

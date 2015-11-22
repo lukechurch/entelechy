@@ -5,7 +5,7 @@
 import 'dart:async';
 import 'dart:io' as io;
 import 'dart:convert' as convert;
-import 'package:entelechy/utils.dart';
+import 'package:entelechy_server/utils.dart';
 
 main(List<String> args) async {
   if (args.length != 1) {

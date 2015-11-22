@@ -1,4 +1,4 @@
-name: entelechy
+name: entelechy_server
 version: 0.0.1
 description: Minimal live-test
 environment:
