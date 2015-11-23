@@ -75,12 +75,13 @@ void handlePost(HttpRequest req) {
       case "/update":
         log("Calling update $jsonMap");
         String result = await update(jsonMap['src']);
-        res.write(result);
+        writeResponse(res, result);
+
         break;
       case "/startup":
         log("Calling update $jsonMap");
         String result = await startup(jsonMap['src']);
-        res.write(result);
+        writeResponse(res, result);
         break;
       case "/":
       default:
@@ -111,7 +112,6 @@ void handleOptions(HttpRequest req) {
   log("handleOptions");
   HttpResponse res = req.response;
   addCorsHeaders(res);
-  print("${req.method}: ${req.uri.path}");
   res.statusCode = HttpStatus.NO_CONTENT;
   res.close();
 }
@@ -150,6 +150,9 @@ enum State {
 
 State _systemState = State.NOT_STARTED;
 
+writeResponse(HttpResponse res, String message) {
+  res.add(UTF8.encode(JSON.encode({"output": message})));
+}
 
 Future<String> _runFletchCommnand(String command) async {
   log ("Calling Fletch: $command");
