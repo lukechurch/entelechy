@@ -1,0 +1,133 @@
+/*
+   Copyright (c) 2015, the Fletch project authors. Please see the AUTHORS file
+   for details. All rights reserved. Use of this source code is governed by a
+   BSD-style license that can be found in the LICENSE.md file.
+*/
+
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+#container {
+  min-width: 1240px;
+  max-width: 1240px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 20px 0;
+  /* Box sizing to subtract padding and border from the 100% height of this
+   * element when child elements define 100% height */
+  box-sizing: border-box;
+}
+
+.code,
+.splitter,
+.result {
+  display: inline-block;
+  height: 100%;
+}
+
+.code {
+  width: 600px;
+  float: left;
+}
+
+.splitter {
+  width: 40px;
+  float: left;
+  position: relative;
+}
+
+.splitter .inner {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  margin-left: 20px;
+  box-shadow: rgba(255, 255, 255, 0.07) 1px 0 0 inset;
+  border-left: 1px solid #cccccc;
+  position: absolute;
+}
+
+.result {
+  width: 599px;
+  float: right;
+  border-right: 1px solid #dddddd;
+}
+
+.button {
+  position: absolute;
+  outline: none;
+  color: #666;
+  fill: #666;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 4px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12pt;
+  line-height: 18px;
+  height: 36px;
+  cursor: pointer;
+  padding: 2px 6px;
+  transition: 100ms;
+  min-width: 100px;
+  z-index: 7;
+}
+
+.button#startupbutton {
+  top: 0;
+  right: 50px;
+}
+.button#updatebutton {
+  top: 42px;
+  right: 50px;
+}
+
+.breakpoints {
+  width: 20px;
+  background-color: #ffffff;
+  border-right: none;
+}
+
+.breakpoint {
+  width: 10px;
+  height: 10px;
+  fill: #FFC469;
+  stroke: #8E672A;
+}
+
+.breakpoint-line-highlight {
+  background: rgba(255, 196, 105, 0.5);
+}
+
+.line-infos {
+  width: 0;
+  border-right: none;
+}
+
+.line-info {
+  background: #F7F7F7;
+  position: absolute;
+  right: -570px;
+  border: 1px solid #EAEAEA;
+  border-radius: 10px;
+  padding: 2px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.code .CodeMirror-gutter-wrapper {
+  -webkit-user-select: all;
+  -moz-user-select: all;
+  user-select: all;
+  z-index: 8;
+}
+
+.code .CodeMirror-gutter-elt {
+  cursor: text;
+}
