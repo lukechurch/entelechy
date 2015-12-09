@@ -104,6 +104,9 @@ abstract class Document {
   bool get isClean;
   void markClean();
 
+  void colorText(Position from, Position to, String className);
+  void clearText();
+
   void setAnnotations(List<Annotation> annotations);
   void clearAnnotations() => setAnnotations([]);
 

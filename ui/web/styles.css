@@ -58,6 +58,7 @@ html, body {
   width: 599px;
   float: right;
   border-right: 1px solid #dddddd;
+  position: relative;
 }
 
 .button {
@@ -69,9 +70,9 @@ html, body {
   background-color: #fff;
   border-radius: 4px;
   font-family: 'Roboto', sans-serif;
-  font-size: 12pt;
+  font-size: 10pt;
   line-height: 18px;
-  height: 36px;
+  height: 28px;
   cursor: pointer;
   padding: 2px 6px;
   transition: 100ms;
@@ -79,12 +80,29 @@ html, body {
   z-index: 7;
 }
 
+.button:hover {
+  background-color: #F0F0F0;
+}
+
+.button:active {
+  background-color: #DDDDDD;
+}
+
+.button.disabled,
+.button.disabled:hover,
+.button.disabled:active {
+  color: #ccc;
+  fill: #ccc;
+  border-color: #ddd;
+  cursor: default;
+}
+
 .button#startupbutton {
   top: 0;
   right: 50px;
 }
 .button#updatebutton {
-  top: 42px;
+  top: 32px;
   right: 50px;
 }
 
@@ -130,4 +148,19 @@ html, body {
 
 .code .CodeMirror-gutter-elt {
   cursor: text;
+}
+
+#results-loader {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.75) url(loader.gif) no-repeat center center;
+  width: 100%;
+  height: 100%;
+}
+
+.insert-code {
+  background: #CDF7CE;
+}
+
+.delete-code {
+
 }

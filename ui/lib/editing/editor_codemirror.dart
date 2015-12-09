@@ -343,6 +343,14 @@ class _CodeMirrorDocument extends Document {
 
   void markClean() => doc.markClean();
 
+  void colorText(ed.Position from, ed.Position to, String className) {
+    doc.markText(_posToPos(from), _posToPos(to), className: className);
+  }
+
+  void clearText() {
+    doc.getAllMarks().forEach((marker) =>marker.clear());
+  }
+
   void applyEdit(SourceEdit edit) {
     doc.replaceRange(edit.replacement, _posToPos(posFromIndex(edit.offset)),
         _posToPos(posFromIndex(edit.offset + edit.length)));
