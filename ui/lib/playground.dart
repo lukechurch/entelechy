@@ -186,18 +186,18 @@ class Playground {
     for (dmp.Diff diff in diffs) {
       switch (diff.operation) {
         case dmp.DIFF_INSERT:
-          Position from = new Position(line, ch);
           List<String> lines = diff.text.split('\n');
-          line = line + lines.length - 1;
-          if (lines.length == 1) {
-            // There is no newline in this chunk of text, so we're on the last
-            // line of the previous chunk.
-            ch = ch + lines.last.length;
-          } else {
-            ch = lines.last.length;
+          for (String ln in lines) {
+            int skip = ln.length - ln.trimLeft().length;
+            Position from = new Position(line, ch + skip);
+            Position to = new Position(line, ch + ln.length);
+            colour(from, to, 'insert-code');
+            if (lines.last != ln) {
+              line++; ch = 0;
+            } else {
+              ch = ln.length;
+            }
           }
-          Position to = new Position(line, ch);
-          editor.document.colorText(from, to, 'insert-code');
           break;
         case dmp.DIFF_EQUAL:
           List<String> lines = diff.text.split('\n');
@@ -215,6 +215,10 @@ class Playground {
 
   void _clearDiff() {
     editor.document.clearText();
+  }
+
+  void colour(Position from, Position to, String colour) {
+    editor.document.colorText(from, to, 'insert-code');
   }
 
   /// Sends the [code] to the server, using the given [action], which is the
