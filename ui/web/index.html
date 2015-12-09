@@ -34,12 +34,13 @@
   <div class="code" style="background:white"></div>
   <div class="splitter" style="background:white">
     <div class="inner"></div>
-    <button type="button" id="startupbutton" class="button">
-      <svg width="14" height="14" style="vertical-align: text-bottom;" viewBox="5 4 19 19" class="">
-        <path d="M8 5v14l11-7z"></path>
-      </svg>
-      Startup
-    </button>
+    <button id="startupbutton" class="button" type="button">
+       <svg width="14" height="14" style="vertical-align: text-bottom;" viewBox="5 4 19 19" class="">
+         <path d="M8 5v14l11-7z"></path>
+       </svg>
+       <span>Startup</span>
+     </button>
+
     <button type="button" id="updatebutton" class="button">
       <svg width="14" height="14" style="vertical-align: text-bottom;" viewBox="0 0 512 512" class="">
         <path d="M451.878,215.896c-25.196,0.229-50.377,0.358-75.573,0.571c4.233,43.372-10.049,88.179-43.26,121.339
@@ -49,8 +50,12 @@
             c-88.391,88.391-88.391,231.719,0,320.094c88.374,88.358,231.703,88.358,320.078,0
             C434.466,343.117,456.145,278.766,451.878,215.896z" id="path-0" style="position: relative;"></path>
       </svg>
-      Update
+      <span>Update</span>
     </button>
+    <label class="checkbox" id="autocheckbox">
+      <input type="checkbox" id="runauto" value="auto">
+      <span>Auto</span>
+    </label>
   </div>
   <div class="result" style="background:white">
     <div id="results-loader" style="visibility: hidden;"></div>

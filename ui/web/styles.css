@@ -61,7 +61,8 @@ html, body {
   position: relative;
 }
 
-.button {
+.button,
+.checkbox {
   position: absolute;
   outline: none;
   color: #666;
@@ -76,21 +77,51 @@ html, body {
   cursor: pointer;
   padding: 2px 6px;
   transition: 100ms;
-  min-width: 100px;
+  width: 100px;
   z-index: 7;
 }
 
-.button:hover {
+  .checkbox {
+    width: 86px;
+    height: 22px;
+  }
+
+  .button>svg {
+    position: absolute;
+    left: 8px;
+    top: 6px;
+  }
+
+  .checkbox>input {
+    position: absolute;
+    left: 8px;
+    top: 6px;
+    margin: 0;
+  }
+
+  .button>span,
+  .checkbox>span {
+    position: absolute;
+    left: 30px;
+    top: 4px;
+  }
+
+  .button:hover,
+  .checkbox:hover {
   background-color: #F0F0F0;
 }
 
-.button:active {
+.button:active,
+.checkbox:active {
   background-color: #DDDDDD;
 }
 
 .button.disabled,
 .button.disabled:hover,
-.button.disabled:active {
+.button.disabled:active,
+.checkbox.disabled,
+.checkbox.disabled:hover,
+.checkbox.disabled:active {
   color: #ccc;
   fill: #ccc;
   border-color: #ddd;
@@ -103,6 +134,11 @@ html, body {
 }
 .button#updatebutton {
   top: 32px;
+  right: 50px;
+}
+
+.checkbox#runauto {
+  top: 64px;
   right: 50px;
 }
 

@@ -157,6 +157,15 @@ class Playground {
 
       _updateRunButton(hasErrors: hasErrors, hasWarnings: hasWarnings);
 
+      html.DivElement container = html.querySelector('#container');
+
+      // print ("value");
+      var runAutoChecked = container.querySelector('#runauto').checked;
+
+      if (_startupRan && runAutoChecked && !hasErrors) {
+        _handleRun(dartSource, 'update');
+      }
+
       return hasErrors == false && hasWarnings == false;
     }).catchError((e) {
       dartDocument.setAnnotations([]);
@@ -172,6 +181,7 @@ class Playground {
     if (hasErrors != null && hasErrors) {
       html.querySelectorAll('.button').classes.add('disabled');
       _buttonsDisabled = true;
+
     } else {
       html.querySelectorAll('.button').classes.remove('disabled');
       _buttonsDisabled = false;
